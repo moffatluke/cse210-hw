@@ -49,6 +49,7 @@ class Program
                 max = num;
             }
         }
+        
         //print statements
         Console.WriteLine($"The sum is: {sum}");
         Console.WriteLine($"The average is: {average}");
