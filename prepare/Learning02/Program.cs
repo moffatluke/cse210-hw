@@ -25,15 +25,15 @@ class Program
 
 
         //Resume part
-        Resume myResume = new Resume();
+        Resume Resume = new Resume();
 
         //set name in the object ._name to access the name variable
-        myResume._name = "Allison Rose";
+        Resume._name = "Allison Rose";
 
         //fill the job boxes
-        myResume._jobs.Add(job1);
-        myResume._jobs.Add(job2);
+        Resume._jobs.Add(job1);
+        Resume._jobs.Add(job2);
         //display all info (object within a object)
-        myResume.Display();
+        Resume.Display();
     }
 }
