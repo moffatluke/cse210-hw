@@ -49,6 +49,7 @@ class Program
         }
 
 //Calculate the age of the user 
+//This seemed easier and cleaner to do the math elseware and not in the DisplayResult function. 
         static int CalcAge(int yearBorn)
         {
             
@@ -56,7 +57,7 @@ class Program
         }        
         
 
-//Display all informaiton back to the user. 
+//Display all informaiton back to the user. No math just print statements with passed in arguments.
         static void DisplayResult(string name, int squaredUserNumber, int age)
         {
             Console.WriteLine($"{name}, the square of your number is {squaredUserNumber}");
