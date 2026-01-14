@@ -30,7 +30,7 @@ class Program
         //set name in the object ._name to access the name variable
         Resume._name = "Allison Rose";
 
-        //fill the job boxes
+        //fill the job boxes. Using add because job is a list.
         Resume._jobs.Add(job1);
         Resume._jobs.Add(job2);
         //display all info (object within a object)
