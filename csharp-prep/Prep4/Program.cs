@@ -7,7 +7,7 @@ class Program
     {
         Console.WriteLine("Enter a list of whole numbers, type 0 when finished.");
         //create list to add values to
-        List<int> numbers = new List<int>();
+        List<int> numbers = new List<int>(); 
         int userNumber = -1;
         do
         {

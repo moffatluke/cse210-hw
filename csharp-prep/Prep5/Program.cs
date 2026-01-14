@@ -1,30 +1,66 @@
 using System;
+using System.Runtime.InteropServices;
 
 class Program
 {
     static void Main(string[] args)
     {
-        DiplayWelcomeMessage();
-        string userName - AskUserName();
-        int 
+        //calling all functions
+        DisplayWelcomeMessage();
+        string userName = PromptUserName();
+        int userNumber = PromptUserFavNumber();
+        int yearBorn = PromptUserBirthyear();
+        int squaredUserNumber = SquareNumber(userNumber);
+        int age = CalcAge(yearBorn);
+        DisplayResult(userName, squaredUserNumber, age);
+
+//Begining function to welcome them!! :))
+        static void DisplayWelcomeMessage()
         {
             Console.WriteLine("Welcome to the program!");
         }
-
-        //obtain informaition function
-        static void   GetInformation(string username, int favNum int favNum)
-
-        static void DisplayPersonalMessage(string userName)
+//Get name of user
+        static string PromptUserName()
         {
-            Console.WriteLine($"Hello {userName}");
+            Console.Write("Please enter your name: ");
+            string name = Console.ReadLine();
+            return name;
+        }
+//Get favorite numbr of user
+        static int PromptUserFavNumber()
+        {
+            Console.Write("Please enter your favorite number: ");
+            int favNumber = int.Parse(Console.ReadLine());
+            return favNumber;
+        }
+//Get the users birth year
+        static int PromptUserBirthyear()
+        {
+            Console.Write("Please enter the year you were born: ");
+            int birthyear = int.Parse(Console.ReadLine());
+            return birthyear;
         }
 
+//Square the favorite number  
+        static int SquareNumber(int userNumber)
+        {
+            return userNumber * userNumber;
 
-        //calling all functions
-        DisplayWelcome();
-        GetInformation();
-        DisplayPersonalMessage(Console.ReadLine());
+        }
 
+//Calculate the age of the user 
+        static int CalcAge(int yearBorn)
+        {
+            
+            return 2026 - yearBorn;
+        }        
+        
 
+//Display all informaiton back to the user. 
+        static void DisplayResult(string name, int squaredUserNumber, int age)
+        {
+            Console.WriteLine($"{name}, the square of your number is {squaredUserNumber}");
+            Console.WriteLine($"{name}, you will turn {age} this year.");
+        }
     }
 }
