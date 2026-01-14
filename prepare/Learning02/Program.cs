@@ -36,3 +36,4 @@ class Program
         //display all info (object within a object)
         myResume.Display();
     }
+}
