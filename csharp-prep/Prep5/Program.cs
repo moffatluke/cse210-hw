@@ -45,14 +45,12 @@ class Program
         static int SquareNumber(int userNumber)
         {
             return userNumber * userNumber;
-
         }
 
 //Calculate the age of the user 
 //This seemed easier and cleaner to do the math elseware and not in the DisplayResult function. 
         static int CalcAge(int yearBorn)
         {
-            
             return 2026 - yearBorn;
         }        
         
