@@ -8,7 +8,7 @@ public class PromptGenerator
 {
 
 //Attributes
-public List<string> Prompts = new List<string>
+public List<string> _prompts = new List<string>
     {
         "What was the best part of my day?",
         "How did I see the hand of the Lord in my life today?",
@@ -21,7 +21,7 @@ public List<string> Prompts = new List<string>
 public string GetRandomPrompt()
     {
         Random random = new Random();
-        string randomPrompt = Prompts[random.Next(Prompts.Count)];
+        string randomPrompt = _prompts[random.Next(_prompts.Count)];
         return randomPrompt;
     }
 }

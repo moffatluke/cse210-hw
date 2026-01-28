@@ -21,7 +21,7 @@ public class Program
             Console.WriteLine("5. Quit");
             Console.WriteLine ("Please enter a command: ");
             Console.WriteLine("_______________________");
-            Console.WriteLine("> ");
+            Console.Write("> ");
             userInput = Console.ReadLine();
 
             if ((userInput == "1") || (userInput == "1.") || (userInput == "Write") || (userInput == "write"))
@@ -30,7 +30,7 @@ public class Program
                 PromptGenerator gen = new PromptGenerator();
                 string prompt = gen.GetRandomPrompt();
                 Console.WriteLine(prompt);
-                Console.WriteLine("> ");
+                Console.Write("> ");
                 string userinputresponse = Console.ReadLine();
                 Entry entry1 = new Entry(prompt, userinputresponse);
                 journal.AddEntry(entry1);
@@ -38,13 +38,19 @@ public class Program
             }
             else if ((userInput == "2") || (userInput == "2.") || (userInput == "Display") || (userInput == "display" ))
             {
-                //display all the entries i
+                //display all the entries 
+                Console.
             }
+
             else if ((userInput == "3") || (userInput == "3.") || (userInput == "Load") || (userInput == "load" ))
             {
                 //load file
-
+                Console.WriteLine("Enter name for your file:");
+                Console.Write("> ");
+                string fileName = Console.ReadLine();
+                journal._entries = journal.ReadFromFile(fileName);
             }
+
             else if ((userInput == "4") || (userInput == "4.") || (userInput == "Save") || (userInput == "save" ))
             {
                 //Save file

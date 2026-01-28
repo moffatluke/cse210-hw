@@ -17,6 +17,15 @@ public class Entry
         _prompt = prompt;
         _response = response;
     }
+
+//need date argument for loading file method
+    public Entry(string date, string prompt, string response)
+    {
+        _date = date;
+        _prompt = prompt;
+        _response = response;
+    }
+    
     
     public string GetEntry()
     {

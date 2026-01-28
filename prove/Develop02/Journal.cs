@@ -4,29 +4,23 @@ using System.IO;
 
 public class Journal
 {
-    
     //Attributes
-    public List<Entry> Entries = new List<Entry>();
-
+    public List<Entry> _entries = new List<Entry>();
     //add entry method
     public void AddEntry(Entry userEntry)
     {
-        Entries.Add(userEntry);
+        _entries.Add(userEntry);
     }
-    public void Display()
-    {
-        //this is to display the current entries
-    }
+
 
 
     //save the entry to a file
-
     public void SaveFile(string fileName)
     {
         
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            foreach (Entry entry in Entries)
+            foreach (Entry entry in _entries)
             {
                 outputFile.Write(entry.FormatToFile());
             }
@@ -36,21 +30,28 @@ public class Journal
 
 
     //Loading a file
+    public List<Entry> ReadFromFile(string fileName)
+    {
+        Console.WriteLine("Reading Enteries...");
+        List<Entry> entries = new List<Entry>();
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+        foreach (string line in lines)
+        {
+            //unformat file
+            string [] parts = line.Split('|');
+            string date = parts [0];
+            string prompt = parts [1];
+            string response = parts [2];
+            Entry loadedFileEntry = new Entry(date, prompt, response);
+        }
+        return entries;
+    }
 
-    // public static List <Entry> ReadFromFile()
-    // {
-    //     Console.WriteLine("Reading Enteries...");
-    //     List<Entry> entries = new List<Entry>()
-    //     string filename = "Entry.txt";
 
-    //     string[] lines = System.IO.ReadAllLines(filename);
-
-    //     foreach (string entry in enteries)
-    //     {
-    //         Console.WriteLine(Entry);
-    //     }
-    //     return entries;
-    // }
-
+//display method:
+public void Display()
+    {
+        
+    }
 
 }
