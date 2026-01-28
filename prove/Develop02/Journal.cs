@@ -51,7 +51,26 @@ public class Journal
 //display method:
 public void Display()
     {
-        
+        Console.WriteLine("Displaying entries...");
+
+        //if they have no entries
+        if (_entries.Count ==0)
+        {
+            Console.WriteLine();
+            Console.WriteLine("No entries to display.");
+            Console.WriteLine();
+            return;
+        }
+
+        //grab the correct data from the entries and display them
+        foreach (Entry entry in _entries)
+        {
+            Console.WriteLine($"Date: {entry._date}");;
+            Console.WriteLine($"Prompt: {entry._prompt}");
+            Console.WriteLine($"Response: {entry._response}");
+            Console.WriteLine("--------------------");
+            Console.WriteLine();
+        }
     }
 
 }

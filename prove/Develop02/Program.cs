@@ -13,14 +13,15 @@ public class Program
         while ((userInput != "5") || (userInput != "Quit") || (userInput != "5."))
         {
             Console.WriteLine("Welcome to the Journal!");
-            Console.WriteLine("_______________________");
+            Console.WriteLine("-----------------------");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Load");
             Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
             Console.WriteLine ("Please enter a command: ");
-            Console.WriteLine("_______________________");
+            Console.WriteLine("-----------------------");
+            Console.WriteLine();
             Console.Write("> ");
             userInput = Console.ReadLine();
 
@@ -39,7 +40,7 @@ public class Program
             else if ((userInput == "2") || (userInput == "2.") || (userInput == "Display") || (userInput == "display" ))
             {
                 //display all the entries 
-                Console.
+                journal.Display( );
             }
 
             else if ((userInput == "3") || (userInput == "3.") || (userInput == "Load") || (userInput == "load" ))
@@ -63,6 +64,7 @@ public class Program
             }
             else if ((userInput == "5") || (userInput == "Quit") || (userInput == "5."))
             {
+                Console.WriteLine("Goodbye!");
                 break;
             }
             else
