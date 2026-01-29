@@ -36,12 +36,19 @@ public class PromptGenerator
 
     public void ShufflePrompts()
     {
+        //This takes the prompts and shuffles the list. 
+        //Had to add System.Linq
+        //Did some research on simplist shuffle ideas and Linq seemed to be the easiest to implement with the current code. 
+
         _availablePrompts = _availablePrompts
+        
+        //OrderBy with the Next method greats a random value that gets assigned to each string. Then sorts by those numbers.
+
         .OrderBy(p => _random.Next())
+        //The ToList converts the list back into a string list and reassigns the prompts to the shuffled list
         .ToList();
     }
 
-//Shuffle the list 
     public string GetRandomPrompt()
     {
         //make sure there are prompts to use
@@ -50,7 +57,7 @@ public class PromptGenerator
             return null;
         }
 
-        //draw the top card of the prompts and then remove them
+        //draw the 'top card' of the prompts and then remove and add them to the used list.
         string prompt = _availablePrompts[0];
         _availablePrompts.RemoveAt(0);
         _usedPrompts.Add(prompt);
@@ -60,6 +67,7 @@ public class PromptGenerator
 
     public void ResetPrompts()
     {
+        //This resets the list and clears the old list then it reshuffles.
         _availablePrompts.AddRange(_usedPrompts);
         _usedPrompts.Clear();
         ShufflePrompts();

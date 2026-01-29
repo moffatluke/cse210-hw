@@ -29,6 +29,12 @@ public class Program
             if ((userInput == "1") || (userInput == "1.") || (userInput == "Write") || (userInput == "write"))
             {
                 //make object and then display prompt. 
+                //Here is the creative part:
+                //I made the prompts shuffle similar to a deck of cards with a draw and discard pile
+                //They get saved into a used list when they have been drawn and then it resets after the session ends 
+                //This way they don't draw the same prompt the same time they boot up the program
+                //
+
                 string prompt = gen.GetRandomPrompt();
                 Console.WriteLine(prompt);
                 Console.Write("> ");
