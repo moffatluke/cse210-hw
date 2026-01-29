@@ -6,10 +6,9 @@ using System.Linq;
 public class PromptGenerator
 {
 
-    //Creative Part:
+    //CREATIVE PART:
     //Build the prompts like a deck of cards
     //draw pile and the move to a discard pile
-
 
     public List<string> _availablePrompts;
     public List<string> _usedPrompts = new List<string>();
