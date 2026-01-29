@@ -34,7 +34,9 @@ public class Journal
     {
         Console.WriteLine("Reading Enteries...");
         List<Entry> entries = new List<Entry>();
+
         string[] lines = System.IO.File.ReadAllLines(fileName);
+
         foreach (string line in lines)
         {
             //unformat file
@@ -43,10 +45,10 @@ public class Journal
             string prompt = parts [1];
             string response = parts [2];
             Entry loadedFileEntry = new Entry(date, prompt, response);
+            entries.Add(loadedFileEntry);
         }
         return entries;
     }
-
 
 //display method:
 public void Display()
