@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-//We need to get a new random prompt without using the same one twice
-//We need to design it so that if all them get used then there should be a message
+
 public class PromptGenerator
 {
 

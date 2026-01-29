@@ -9,6 +9,7 @@ public class Program
         string userInput = "";
         //make journal
         Journal journal = new Journal();
+        //make prompt
         PromptGenerator gen = new PromptGenerator();
 
         while ((userInput != "5") && (userInput != "Quit") && (userInput != "5."))
@@ -33,7 +34,6 @@ public class Program
                 //I made the prompts shuffle similar to a deck of cards with a draw and discard pile
                 //They get saved into a used list when they have been drawn and then it resets after the session ends 
                 //This way they don't draw the same prompt the same time they boot up the program
-                //
 
                 string prompt = gen.GetRandomPrompt();
                 Console.WriteLine(prompt);
