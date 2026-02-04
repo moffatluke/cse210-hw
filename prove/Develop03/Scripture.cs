@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using System.Xml.Serialization;
 
 public class Scripture
@@ -9,8 +10,8 @@ public class Scripture
     private string _random;
 
     //Constructors
-    
-    public Scripture(Reference reference, string text)
+
+    public Scripture(string reference, string text)
     {
         _reference = reference;
         text = words(_words.Split());
@@ -20,15 +21,23 @@ public class Scripture
 
     //Methods
 
-    public Scripture GetDisplayText()
+    public void GetDisplayText(ScriptureLibrary verse);
     {
         //todo
+        //Calls the reference and the words for the reference
+        Reference.GetDisplayText();
+        Word.GetDisplayText();
     }
 
-    public void Scripture HideRandomWords(int count)
+    public void HideRandomWords(int count)
     {
         //todo
-        
+
+    }
+
+    public void IsCompletelyHidden()
+    {
+        //Todo
     }
 
 }

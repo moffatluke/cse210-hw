@@ -5,28 +5,36 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("This will be the main loop");
-        bool keepRunning = true;
+        bool isRunning = true;
+        string userInput = "";
 
 
-
-
-        //MAIN LOOP
-
-        //CALL Chain
-        /*
-        scipture.GetDisplayText()
-            - Calls reference.GetDisplayText()
-            - Calls word.getDisplayText() for each word
-        Calls scriptrue.HidRandomWords(n)
-            - Calls word.Hide() on selected words
-        Calls scripture.IsCompletelyHidden()
-            - Calls word.IsHidden() for each word
-        */
-
-        while (keepRunning)
+    //main loop
+    while (isRunning)
         {
             Console.Clear();
-            Console.WriteLine(Scripture.GetDisplayText());
+            Console.WriteLine("Select a scripture to memorize:");
+            Console.WriteLine("1. John 3:16");
+            Console.WriteLine("2. Proverbs 3:5-6");
+            Console.WriteLine("3. Random");
+            Console.WriteLine("Type a number or type 'quit' to exit.");
+            Console.WriteLine("> ");
+
+            userInput = Console.ReadLine();
+
+            //quit mechanic
+            if (userInput == "quit")
+            {
+                Console.WriteLine("Bye for now!");
+                isRunning = false;
+                break;
+            }
+
+            if scripture
+
         }
+
+
+
     }
 }
