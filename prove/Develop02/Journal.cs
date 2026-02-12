@@ -32,7 +32,7 @@ public class Journal
     //Loading a file
     public List<Entry> ReadFromFile(string fileName)
     {
-        Console.WriteLine("Reading Enteries...");
+        Console.WriteLine("Reading Enteries...");  
         List<Entry> entries = new List<Entry>();
 
         string[] lines = System.IO.File.ReadAllLines(fileName);

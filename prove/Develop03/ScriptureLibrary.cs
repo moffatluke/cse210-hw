@@ -1,28 +1,62 @@
+using System;
 using System.Collections.Generic;
-
-//this is the main librayr of all the scriptures for the program
-//this has the refrence informaiton and the texts 
-class ScriptureLibrary
+using System.IO;
+//uses ideas from journal project for reading the file. 
+public class ScriptureLibrary 
 {
-    //Member varaibles:
-    _scriptures = List<ScriptureOption> = new List<ScriptureOption>
-    //_random : random
+    //member attributes
+    private List<Reference> _references;
+    private List<string> _texts;
+    private Random _random;
 
-    private List<ScriptureOption> _scriptures = new List<ScriptureOption>
+    public ScriptureLibrary(string fileName)
     {
-        //John 3:16
-        new ScriptureOption(
-            new Reference ("John", 3, 16),
-            "For God so loved the world that he gave his only begotten Son"
-        ),
+        //use library text file for this project
+        _random = new Random();
+        ReadFromFile("library.txt");
+    }
 
-        //Proverbs 3:5-6
-        new ScriptureOption(
-            new Reference ("Proverbs", 3, 5, 6),
-            "Trust in the Lord with all thine heart and lean not unto thine own understanding"
-        )
+    private void ReadFromFile(string fileName)
+    {
+        Console.WriteLine("Reading the Scriptures...");
 
-        new ScriptureOption
+        _references = new List<Reference>();
+        _texts = new List<string>();
 
-    };
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+
+        foreach (string line in lines)
+        {
+            //unformate text file to make it readable
+            string[] parts = line.Split('|'); 
+            string book = parts[0];
+            int chapter = int.Parse(parts[1]);
+            int startVerse = int.Parse(parts[2]);
+            string endVersePart = parts[3];
+            string text = parts[4];
+
+            Reference reference;
+
+            //check verses
+            if (endVersePart == "")
+            {
+                //send to the constuctor
+                reference = new Reference(book, chapter, startVerse);
+            }
+            else
+            {
+                //send to the other constuctor
+                reference = new Reference(book, chapter, startVerse, endVersePart);
+            }
+            //Add the data
+            _references.Add(reference);
+            _texts.Add(text);
+        }
+    }
+
+    public Scripture GetRandom()
+    {
+        int index = _random.Next(_references.Count);
+        return new Scripture(_references[index], _texts[index]);
+    }
 }

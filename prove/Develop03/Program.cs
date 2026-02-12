@@ -4,37 +4,41 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("This will be the main loop");
-        bool isRunning = true;
-        string userInput = "";
+        //setting new libraries
+        ScriptureLibrary library = new ScriptureLibrary("library.txt");
+        //get random method being called to get a random scripture
+        Scripture scripture = library.GetRandom();
+        //set the program to running
+        bool running = true;
 
-
-    //main loop
-    while (isRunning)
+        while (running)
         {
-            Console.Clear();
-            Console.WriteLine("Select a scripture to memorize:");
-            Console.WriteLine("1. John 3:16");
-            Console.WriteLine("2. Proverbs 3:5-6");
-            Console.WriteLine("3. Random");
-            Console.WriteLine("Type a number or type 'quit' to exit.");
-            Console.WriteLine("> ");
-
-            userInput = Console.ReadLine();
-
-            //quit mechanic
-            if (userInput == "quit")
+            // If the current scripture is fully hidden, load a new one
+            if (scripture.IsCompletelyHidden())
             {
-                Console.WriteLine("Bye for now!");
-                isRunning = false;
-                break;
+                scripture = library.GetRandom();
+                continue;
             }
+            
 
-            if scripture
+            Console.Clear();
+            //display the text
+            Console.WriteLine(scripture.GetDisplayText());
+            Console.WriteLine();
+            Console.Write("Press Enter to hide words or type 'quit' to exit: ");
+            //clean the input so it 'quit' always works
+            string input = Console.ReadLine().Trim().ToLower();
 
+            if (input == "quit")
+            {
+                //turn off the program
+                running = false;
+            }
+            else
+            {
+                //pressing enter hides 3 words. We can change the difficulty by changing the counter
+                scripture.HideRandomWords(3);
+            }
         }
-
-
-
     }
 }

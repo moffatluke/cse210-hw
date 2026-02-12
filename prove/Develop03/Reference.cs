@@ -1,3 +1,5 @@
+using System.Collections.Concurrent;
+
 public class Reference
 {
 
@@ -6,37 +8,38 @@ public class Reference
     private string _book;
     private int _startVerse;
     private int _endVerse;
-
     private int _chapter;
-    
+
     //CONSTRUCTORS:
     public Reference(string book, int chapter, int verse)
     {
-        //todo
-        book = _book;
-        chapter = _chapter;
-        
+        _book = book;
+        _chapter = chapter;
+        _startVerse = verse;
+        _endVerse = verse;   
     }
 
-    public Reference(string book, int chapter, int startVerse, int endVerse)
+    //other one for multiple verses
+    public Reference (string book, int chapter, int startVerse, string endVerse) //includes a ending verse
     {
-        book = _book;
-        chapter = _chapter;
-        startVerse = _startVerse;
-        endVerse = _endVerse;
+        _book = book;
+        _chapter = chapter;
+        _startVerse = startVerse;
+        _endVerse = int.Parse(endVerse);
     }
-
-    //getter/setters?
-
 
 //Methods
-    public void GetDisplayText(string book, int chapter, int endVerse)
+    public string GetDisplayText()
+    {
+        //if statements to check to see if it is multiple verses or just one
+        if (_startVerse == _endVerse)
         {
-            Console.WriteLine($" {_book} {_chapter}:{_endVerse}");
+            return $"{_book} {_chapter}:{_startVerse}";
         }
 
-        public void GetDisplayText(string book, int chapter, int startVerse, int endVerse)
+        else
         {
-            Console.WriteLine($" {_book} {_chapter}:{_startVerse}-{_endVerse}");
+            return $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
         }
+    }
 }

@@ -1,6 +1,0 @@
-class ScriptureOption
-{
-    //todo
-
-    //attibutes
-}
