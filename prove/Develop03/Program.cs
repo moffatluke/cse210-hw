@@ -10,7 +10,10 @@ class Program
         Scripture scripture = library.GetRandom();
         //set the program to running
         bool running = true;
-
+        
+        Console.WriteLine("Here is your scripture to memorize:");
+        Console.WriteLine("");
+        
         while (running)
         {
             // If the current scripture is fully hidden, load a new one
@@ -19,7 +22,6 @@ class Program
                 scripture = library.GetRandom();
                 continue;
             }
-            
 
             Console.Clear();
             //display the text
@@ -27,6 +29,7 @@ class Program
             Console.WriteLine();
             Console.Write("Press Enter to hide words or type 'quit' to exit: ");
             //clean the input so it 'quit' always works
+            //no extra inputs needed. 
             string input = Console.ReadLine().Trim().ToLower();
 
             if (input == "quit")
@@ -34,6 +37,7 @@ class Program
                 //turn off the program
                 running = false;
             }
+
             else
             {
                 //pressing enter hides 3 words. We can change the difficulty by changing the counter
