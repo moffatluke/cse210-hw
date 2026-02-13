@@ -10,10 +10,8 @@ class Program
         Scripture scripture = library.GetRandom();
         //set the program to running
         bool running = true;
-        
-        Console.WriteLine("Here is your scripture to memorize:");
-        Console.WriteLine("");
-        
+
+
         while (running)
         {
             // If the current scripture is fully hidden, load a new one

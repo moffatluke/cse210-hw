@@ -18,16 +18,17 @@ public class ScriptureLibrary
 
     private void ReadFromFile(string fileName)
     {
-        Console.WriteLine("Reading the Scriptures...");
+        Console.WriteLine("Reading the Scriptures...(You should too!)");
 
         _references = new List<Reference>();
         _texts = new List<string>();
 
+        //same idea as the journal program
         string[] lines = System.IO.File.ReadAllLines(fileName);
 
         foreach (string line in lines)
         {
-            //unformate text file to make it readable
+            //unformat text to make it readable 
             string[] parts = line.Split('|'); 
             string book = parts[0];
             int chapter = int.Parse(parts[1]);
@@ -43,11 +44,13 @@ public class ScriptureLibrary
                 //send to the constuctor
                 reference = new Reference(book, chapter, startVerse);
             }
+
             else
             {
-                //send to the other constuctor
+                //send to the other constuctor if there are multiple verses
                 reference = new Reference(book, chapter, startVerse, endVersePart);
             }
+
             //Add the data
             _references.Add(reference);
             _texts.Add(text);
