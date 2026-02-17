@@ -1,7 +1,5 @@
 public class MathAssignment : Assignment
 {
-    //todo
-
     //attributes
     private string _section;
     private string _problems;
@@ -12,5 +10,12 @@ public class MathAssignment : Assignment
     {
         _section = section;
         _problems = problems;
+    }
+
+    //methods
+
+    public string GetHomeworkList()
+    {   
+        return $"Section {_section} Problems {_problems}";
     }
 } 

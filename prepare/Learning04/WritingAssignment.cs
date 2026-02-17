@@ -5,17 +5,18 @@ public class WritingAssignment : Assignment {
     
 
     //Constructor:
-    WritingAssignment(string studentName, string topic, string title) : base(studentName, topic)
+    public WritingAssignment(string studentName, string topic, string title) 
+        : base(studentName, topic)
     {
         _title = title;
     }
     
 
     //Methods
-    public string GetWritingInfromation()
+    public string GetWritingInformation()
     {
+        string studentName = GetStudentName();
+
         return $"{_title} by {_studentName}";
     }
 }
-
-//this is a test of git hub.
