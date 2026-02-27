@@ -16,26 +16,41 @@ class Program
             Console.WriteLine("3. Listing Activity");
             Console.WriteLine("4. Quit");
             Console.Write("> ");
-            string input = Console.ReadLine();
 
-            Activity activity = null;
+            string input = Console.ReadLine();
+            
+
 
             if (input == "1" || input == "breathing")
-                activity = new BreathingActivity();
+            {
+                BreathingActivity activity = new BreathingActivity();
+                activity.Run();
+
+            }
+
             else if (input == "2" || input == "reflecting")
-                activity = new ReflectingActivity();
+            {
+                ReflectingActivity activity= new ReflectingActivity();
+                activity.Run();
+            }
+
             else if (input == "3" || input == "listing")
-                activity = new ListingActivity();
+            {
+                ListingActivity activity= new ListingActivity();
+                activity.Run();
+            }
+            
             else if (input == "4" || input == "quit")
+            {
+                Console.WriteLine("Goodbye!");
                 break;
+            }
+                
             else
             {
                 Console.WriteLine("Invalid command. Press Enter to try again.");
                 Console.ReadLine();
-                continue;
             }
-
-            //activity.Run();
         }
     }
-}
+} 
