@@ -155,12 +155,12 @@ public void BreathIn(int seconds)
         for (int i = 0; i <= width; i++) //i is how many blocks are filled. Stops at 30
         {
             string bar = new string('█', i).PadRight(width); //make the string for █ and repeats for the i. Pad right adds it on the right till it gets to 30
-            Console.Write("\rBreathe in...  " + bar); // prints the animation adn replaces the previous version so it looks like the same line
-            Thread.Sleep(seconds * 1000 / width); //makes sure it is timed well. divids the seconds by the width
+            Console.Write("\rBreathe in...  " + bar); //Prints the animation and replaces the previous version so it looks like the same line
+            Thread.Sleep(seconds * 1000 / width); //Makes sure it is timed well. Divids the seconds by the width
         }
 
         Console.ForegroundColor = previous;  // restore color back to white text
-        Console.WriteLine("\n"); //
+        Console.WriteLine("\n"); 
     }
     public void BreathOut(int seconds)
     {   
