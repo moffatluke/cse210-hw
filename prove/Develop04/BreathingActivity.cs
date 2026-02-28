@@ -2,9 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 
 public class BreathingActivity : Activity
 {
-    //attributes
-
-
     //constructors
     public BreathingActivity ()
     : base(
@@ -16,24 +13,33 @@ public class BreathingActivity : Activity
     //Methods
     public void Run()
     {
-        DisplayStartingMessage();
+        DisplayStartingMessage(); //start like normal
 
-        DateTime endTime = DateTime.Now.AddSeconds(GetDuration());
-        
-        // main body
-        while (DateTime.Now < endTime)
+        //set the numbers so there isn't a weird fast breath at the end or anything
+        int inhaleSeconds = 5;
+        int exhaleSeconds = 7;
+        int cycleSeconds = inhaleSeconds + exhaleSeconds;
+
+        int cycles = GetDuration() / cycleSeconds; //calc to see how many to do
+
+        if (cycles <= 0) //check to see if there is enough time.
         {
-            Console.Write("Breathe in... ");
-            ShowCountdown(4);
-            Console.WriteLine();
-            Console.WriteLine(); //a bit more spacing
-
-            Console.Write("Breathe out... ");
-            ShowCountdown(6);
-            Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine("Time too short for one full breath.");
+            DisplayEndingMessage();
+            return;
         }
-        DisplayEndingMessage();
+
+        Console.Clear();
+        Console.WriteLine("Breathe in for 5 seconds, out for 7 seconds.\n");
+
+
+        for (int i = 0; i < cycles; i++) //for loop to iterate through the breathes
+        {
+            BreathIn(inhaleSeconds);
+            BreathOut(exhaleSeconds);
+        }
+
+        DisplayEndingMessage(); //End like normal
     }
 }
 
