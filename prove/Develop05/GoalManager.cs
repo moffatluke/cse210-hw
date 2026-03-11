@@ -112,58 +112,58 @@ public class GoalManager
     }
 
     //Same Idea as the jounral but need to skip line 1 because it is the score of the user and have 3 options
-public void LoadGoals(string fileName)
-{
-    
-    string[] lines = System.IO.File.ReadAllLines(fileName);
-    // List<string> lines = new List<string>();
-
-    // foreach(var line in file)
-    //     {
-    //         lines.Add(line);
-    //     }
-
-    _score += int.Parse(lines[0]);
-    string[] parts; 
-    
-    // pipe will be the delimiter so commas in names and descriptions don't break it
-    for (int i = 1; i < lines.Length; i++)
-    {
-        parts = lines[i].Split('|'); 
+    public void LoadGoals(string fileName)
+        {
         
-        string goalType = parts[0];
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+        // List<string> lines = new List<string>();
 
-        if (goalType == "SimpleGoal")
+        // foreach(var line in file)
+        //     {
+        //         lines.Add(line);
+        //     }
+
+        _score += int.Parse(lines[0]);
+        string[] parts; 
+        
+        // pipe will be the delimiter so commas in names and descriptions don't break it
+        for (int i = 1; i < lines.Length; i++)
         {
-            string goalName = parts[1];
-            string description = parts[2];
-            int points = int.Parse(parts[3]);
-            bool isComplete = bool.Parse(parts[4]);
+            parts = lines[i].Split('|'); 
+            
+            string goalType = parts[0];
 
-            _goals.Add(new SimpleGoal(goalName, description, points, isComplete));
-        }
-        else if (goalType == "EternalGoal")
-        {
-            string goalName = parts[1];
-            string description = parts[2];
-            int points = int.Parse(parts[3]);
-
-            _goals.Add(new EternalGoal(goalName, description, points));
-        }
-        else if (goalType == "ChecklistGoal")
+            if (goalType == "SimpleGoal")
             {
                 string goalName = parts[1];
                 string description = parts[2];
                 int points = int.Parse(parts[3]);
-                int amountCompleted = int.Parse(parts[4]);
-                int target = int.Parse(parts[5]);
-                int bonus = int.Parse(parts[6]);
+                bool isComplete = bool.Parse(parts[4]);
 
-                _goals.Add(new ChecklistGoal(goalName, description, points, amountCompleted, target, bonus));
-
+                _goals.Add(new SimpleGoal(goalName, description, points, isComplete));
             }
+            else if (goalType == "EternalGoal")
+            {
+                string goalName = parts[1];
+                string description = parts[2];
+                int points = int.Parse(parts[3]);
+
+                _goals.Add(new EternalGoal(goalName, description, points));
+            }
+            else if (goalType == "ChecklistGoal")
+                {
+                    string goalName = parts[1];
+                    string description = parts[2];
+                    int points = int.Parse(parts[3]);
+                    int amountCompleted = int.Parse(parts[4]);
+                    int target = int.Parse(parts[5]);
+                    int bonus = int.Parse(parts[6]);
+
+                    _goals.Add(new ChecklistGoal(goalName, description, points, amountCompleted, target, bonus));
+
+                }
+        }
     }
-}
 
 
     //CREATIVE PART:

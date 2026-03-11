@@ -17,6 +17,7 @@ public abstract class Goal
     }
 
     //Methods
+    
     //Abstract
     public abstract int RecordEvent();
     public abstract bool IsComplete();

@@ -18,12 +18,11 @@ public class EternalGoal : Goal
     }
     public override bool IsComplete()
     {
-        return false;
+        return false; // Eternal can't be completed
     }
 
     public override string GetStringRepresentation()
     {
         return $"EternalGoal|{GetGoalName()}|{GetDescription()}|{GetPoints()}";
     }
-
 }
