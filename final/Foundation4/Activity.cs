@@ -37,7 +37,9 @@ public abstract class Activity
     // GET SUMMARY -------------
     public string GetSummary()
     {
-        return "";
-        //todo
+        return $"{GetDate()} {GetType().Name} ({GetLengthMinutes()} min) - Distance: {GetDistance():0.00} miles, Speed: {GetSpeed():0.00} mph, Pace: {GetPace():0.00} min per mile";
     }
+     // Used :0.00 after some of the methods to format them. It round them and only displays the two decimal palces. 
+    //learned on https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings
+    //Used GetType().Name to get the name of the the activity. 
 }
