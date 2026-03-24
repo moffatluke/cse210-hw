@@ -1,7 +1,6 @@
 public class Cycling : Activity
 {
     //Attribute
-
     private double _speed; //miles per hour
 
     //Constuctor
@@ -26,7 +25,6 @@ public class Cycling : Activity
 
     public override double GetPace()
     {
-
         return 60 / GetSpeed();
     }
 }

@@ -1,7 +1,6 @@
 public class Running : Activity
 {
     //Attribute
-
     private double _distance; //miles per hour
 
     //Constuctor
@@ -12,11 +11,11 @@ public class Running : Activity
     }
 
     //Methods
-
     public override double GetDistance()
     {
         return _distance;
     }
+    
     public override double GetSpeed()
     {
         return (_distance / GetLengthMinutes()) * 60;

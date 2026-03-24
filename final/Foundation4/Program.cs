@@ -1,6 +1,3 @@
-using System;
-using System.Threading.Tasks.Dataflow;
-
 class Program
 {
     static void Main(string[] args)
@@ -11,8 +8,7 @@ class Program
 
         List<Activity> activities = new List<Activity>();
 
-        //activites
-
+        //Activites
         //Running
         Running r1 = new Running("03 Nov 2022", 30, 9);
         activities.Add(r1);

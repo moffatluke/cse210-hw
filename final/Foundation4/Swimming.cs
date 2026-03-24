@@ -4,7 +4,6 @@ public class Swimming : Activity
     private int _laps;
 
     //Consotuctor
-
     public Swimming(string date, int lengthMinutes, int laps) :
     base(date, lengthMinutes)
     {
@@ -12,7 +11,6 @@ public class Swimming : Activity
     }
 
     //Methods
-
     public override double GetDistance()
     {
         return _laps * 0.03107;
@@ -27,5 +25,4 @@ public class Swimming : Activity
     {
         return GetLengthMinutes () / GetDistance();
     }
-
 }
